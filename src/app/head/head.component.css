@@ -1,0 +1,13 @@
+nav {
+    height: 30px;
+    margin-top: 20px;
+    background-color: #696969;
+    width: 99%;
+}
+img {
+    height: 50px;
+}
+
+#navbarSupportedContent{
+    margin-left: 45%;
+}
