@@ -1,0 +1,10 @@
+<p>fournisseur-component works!</p>
+<div class="border" [hidden]='hide'>
+<ul >
+<li>idFournisseur : {{idFournisseur}}</li>
+<li>code : {{code}}</li>
+<li>libelle : {{libelle}}</li>
+</ul>
+</div>
+<button (click)="hide_inf()" class="btn btn-outline-danger">Cacher</button>
+<app-list-fournisseur-component></app-list-fournisseur-component>

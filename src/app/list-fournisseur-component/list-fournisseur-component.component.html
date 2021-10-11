@@ -1,0 +1,9 @@
+<div class="container" *ngFor="let fournisseur of List">
+    <form *ngIf="fournisseur.idFournisseur&#60;100">
+        <fieldset (dblclick)="delete(fournisseur)" [style.background-color]="getColor(fournisseur)">
+            <legend>idFournisseur: {{fournisseur.idFournisseur}}</legend>
+            <label [style.font-weight]="getFont(fournisseur)">code: {{fournisseur.code}}</label><br>
+            <label>libelle: {{fournisseur.libelle}}</label>
+        </fieldset>
+    </form>
+</div>

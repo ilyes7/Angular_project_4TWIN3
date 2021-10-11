@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {user} from  "../Models/User";
 
+
 @Component({
   selector: 'app-list-user',
   templateUrl: './list-user.component.html',
@@ -9,6 +10,7 @@ import {user} from  "../Models/User";
 export class ListUserComponent implements OnInit {
 
   List: user[];
+  inputCategory: string;
   constructor() { }
 
   ngOnInit(): void {
@@ -36,7 +38,7 @@ export class ListUserComponent implements OnInit {
       profession: "Software Engineer"
       },
       {
-        idUser: 3,
+      idUser: 3,
       firstName: "George",
       lastName: "Clooney",
       birthDate: "1999-06-30",
@@ -68,8 +70,10 @@ export class ListUserComponent implements OnInit {
     picture: "https://bootdey.com/img/Content/avatar/avatar5.png",
     profession: "Software Engineer"
     },
-    ]
-    
+    ] 
   }
 
+  delete(user:user){
+    let i = this.List.indexOf(user);
+    this.List.splice(i,1);}
 }

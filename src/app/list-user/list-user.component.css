@@ -172,3 +172,22 @@ body{margin-top:20px;}
 .table-stats .table-line-plus .status-social-icon {
 	color: #a75d54;
 }
+.delete {
+	background-color: red;
+	color: seashell;
+	position: center;
+	margin-left: 30%;
+	width: 35%;
+	height: 20%;
+	
+}
+.filter{
+	margin-top: 40px;
+	margin-left: 20px;
+}
+.filter_input{
+	margin-left: 5px;
+}
+.filter_h5{
+   font-style: bold;
+}

@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { HeadComponent } from './head/head.component';
 import { ContentComponent } from './content/content.component';
 import { ListUserComponent } from './list-user/list-user.component';
+import { FormsModule } from '@angular/forms';
+import { FournisseurComponentComponent } from './fournisseur-component/fournisseur-component.component';
+import { ListFournisseurComponentComponent } from './list-fournisseur-component/list-fournisseur-component.component';
 
 
 @NgModule({
@@ -14,10 +17,13 @@ import { ListUserComponent } from './list-user/list-user.component';
     HeadComponent,
     ContentComponent,
     ListUserComponent,
+    FournisseurComponentComponent,
+    ListFournisseurComponentComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
