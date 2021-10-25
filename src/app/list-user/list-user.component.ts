@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import {user} from  "../Models/User";
 
 
@@ -8,13 +9,13 @@ import {user} from  "../Models/User";
   styleUrls: ['./list-user.component.css']
 })
 export class ListUserComponent implements OnInit {
-
+  allUser: user[];
   List: user[];
   inputCategory: string;
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.List = [
+    this.allUser = [
       {
       idUser: 1,
       firstName: "Mila",
@@ -71,6 +72,12 @@ export class ListUserComponent implements OnInit {
     profession: "Software Engineer"
     },
     ] 
+    this.route.paramMap.subscribe(
+      (params)=>
+      {
+        let category= params.get('category')
+        this.List= this.allUser.filter(user=>user.accountCategory === category)}
+    );
   }
 
   delete(user:user){
