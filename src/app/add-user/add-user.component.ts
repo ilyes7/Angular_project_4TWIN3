@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { user } from '../Models/User';
+import { ShareDataService } from '../services/share-data.service';
 
 @Component({
   selector: 'app-add-user',
@@ -11,15 +13,13 @@ export class AddUserComponent implements OnInit {
   terms: Boolean = false;
   pic: Boolean = false;
   user: user;
-  constructor() { }
+  constructor(private data: ShareDataService , private router : Router) { }
 
   ngOnInit(): void {
     this.user =  new user();
   }
 
-  Save(){
-    
-  }
+
 
   change(){
     if (this.terms==false){
@@ -50,9 +50,19 @@ export class AddUserComponent implements OnInit {
 
       }
       console.log(this.pic);
+      console.log(theFile.value);
   }
 
-  add(){
+  Register(){
+   // let theFile: any  = document.getElementById('validatedCustomFile');
+   // this.user.picture = theFile.value;
+   this.user.picture = "https://bootdey.com/img/Content/avatar/avatar5.png"
+
+    this.user.accountCategory = "Customer" ;
+    console.log(this.user);
+    
+    this.data.list.push(this.user);
+    this.router.navigate(["/user"])
     
   }
 

@@ -1,103 +1,113 @@
 <div class="signup-form">
-  <form action="" method="post" #f="ngForm">
-      <h2>Register</h2>
-      <p class="hint-text">Create your account. It's free and only takes a minute.</p>
+    <form action="" method="post" #f="ngForm">
+        <h2>Register</h2>
+        <p class="hint-text">Create your account. It's free and only takes a minute.</p>
 
-      <!--FIRST NAME AND LAST NAME-->
-      <div class="form-group">
-        <label for="" style="margin-bottom: 7px; font-weight: bold;">User category</label>
+        <!--FIRST NAME AND LAST NAME-->
         <div class="form-group">
-          <input type="text" class="form-control" name="categorie" placeholder="Customer" [(ngModel)]="user.accountCategory"
-               required="required"  value="Customer" disabled>
-      </div>
-          <div class="row">
-              <div class="col"><input type="text" class="form-control" name="firstName" placeholder="First Name"
-                      [(ngModel)]="user.firstName" #fn="ngModel" pattern="[a-zA-Z]+$" required="required"
-                      minlength="3"></div>
-              <div class="col"><input type="text" class="form-control" name="lastName" placeholder="Last Name"
-                      [(ngModel)]="user.lastName"  #ln="ngModel" required="required" minlength="3" pattern="[a-zA-Z]+$"></div>
-          </div>
-      </div>
-      <div class="form-group alert alert-danger" *ngIf="fn.invalid && fn.touched">
-          <div *ngIf="fn.hasError('required')">- First name is a required field</div>
-          <div *ngIf="fn.hasError('minlength')">- First name length is less than 3</div>
-          <div *ngIf="fn.hasError('pattern')">- First name should only contain letters</div>
-      </div>
+            <label for="" style="margin-bottom: 7px; font-weight: bold;">User category</label>
+            <div class="form-group">
+                <input type="text" class="form-control" name="categorie" placeholder="Customer"
+                    [(ngModel)]="user.accountCategory" required="required" value="Customer" disabled>
+            </div>
+            <div class="row">
+                <div class="col"><input type="text" class="form-control" name="firstName" placeholder="First Name"
+                        [(ngModel)]="user.firstName" #fn="ngModel" pattern="[a-zA-Z]+$" required="required"
+                        minlength="3">
+                </div>
 
-      <div class="form-group alert alert-danger" *ngIf="ln.invalid && ln.touched">
-        <div *ngIf="ln.hasError('required')">- Last name is a required field</div>
-        <div *ngIf="ln.hasError('minlength')">- Last name length is less than 3</div>
-        <div *ngIf="ln.hasError('pattern')">- Last name should only contain letters</div>
-    </div>
+                <div class="form-group alert alert-danger" *ngIf="fn.invalid && fn.touched">
+                    <div *ngIf="fn.hasError('required')">- First name is a required field</div>
+                    <div *ngIf="fn.hasError('minlength')">- First name length is less than 3</div>
+                    <div *ngIf="fn.hasError('pattern')">- First name should only contain letters</div>
+                </div>
+
+                <div class="col"><input type="text" class="form-control" name="lastName" placeholder="Last Name"
+                        [(ngModel)]="user.lastName" #ln="ngModel" required="required" minlength="3"
+                        pattern="[a-zA-Z]+$"></div>
+            </div>
+        </div>
 
 
-      <div class="form-group">
-          <input type="datepicker" class="form-control" name="birthDate" placeholder="Birth date"
-              onfocus="(this.type='date')" onblur="(this.type='text')" [(ngModel)]="user.birthDate"
-              required="required">
-      </div>
-      <div class="form-group">
-          <input type="email" class="form-control" name="email" placeholder="Email" [(ngModel)]="user.email"
-              pattern="^[a-zA-Z0-9._-]+@gmail.com" required="required"  #email="ngModel">
-      </div>
-      <div class="form-group alert alert-danger" *ngIf="email.invalid && email.touched">
-        <div *ngIf="email.hasError('pattern')">- Email should look like : ABC@gmail.com</div>
-    </div>
-    
-      <div class="form-group">
-          <input type="password" class="form-control" name="password" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-              [(ngModel)]="user.password" required="required" minlength="8"  #pw="ngModel">
-              <div class="form-group alert alert-danger" *ngIf="pw.invalid && pw.touched">
+        <div class="form-group alert alert-danger" *ngIf="ln.invalid && ln.touched">
+            <div *ngIf="ln.hasError('required')">- Last name is a required field</div>
+            <div *ngIf="ln.hasError('minlength')">- Last name length is less than 3</div>
+            <div *ngIf="ln.hasError('pattern')">- Last name should only contain letters</div>
+        </div>
+
+
+        <div class="form-group">
+            <input type="datepicker" class="form-control" name="birthDate" placeholder="Birth date"
+                onfocus="(this.type='date')" onblur="(this.type='text')" [(ngModel)]="user.birthDate"
+                required="required">
+        </div>
+        <div class="form-group">
+            <input type="email" class="form-control" name="email" placeholder="Email" [(ngModel)]="user.email"
+                pattern="^[a-zA-Z0-9._-]+@gmail.com" required="required" #email="ngModel">
+        </div>
+        <div class="form-group alert alert-danger" *ngIf="email.invalid && email.touched">
+            <div *ngIf="email.hasError('pattern')">- Email should look like : ABC@gmail.com</div>
+        </div>
+
+        <div class="form-group">
+            <input type="password" class="form-control" name="password" placeholder="Password"
+                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" [(ngModel)]="user.password" required="required"
+                minlength="8" #pw="ngModel">
+            <div class="form-group alert alert-danger" *ngIf="pw.invalid && pw.touched">
                 <div *ngIf="pw.hasError('required')">- Password is a required field</div>
                 <br *ngIf="pw.hasError('required') && pw.hasError('minlength')">
                 <div *ngIf="pw.hasError('minlength')">- Password length is less than 8</div>
                 <br *ngIf="pw.hasError('minlength') && pw.hasError('pattern')">
                 <div *ngIf="pw.hasError('pattern')">- Password must contain at least: <br>
-                  • 1 uppercase letter <br>
-                  • 1 lowercase letter <br>
-                  • 1 number</div>
+                    • 1 uppercase letter <br>
+                    • 1 lowercase letter <br>
+                    • 1 number</div>
             </div>
-      </div>
-      <!--
+        </div>
+        <!--
   <div class="form-group">
           <input type="password" class="form-control" name="password" placeholder="Confirm Password" 
           [(ngModel)]="user.password" required="required">
       </div>     
       -->
-      <div class="form-group">
-          <input type="text" class="form-control" name="profession" placeholder="Profession"
-              [(ngModel)]="user.profession" required="required">
-      </div>
-      <div class="custom-file">
-          <label for="exampleFormControlFile1" style="font-style: bold; margin-bottom: 5px; font-weight: bold; ">Profil picture</label>
-          <br>
-          
-          <input type="file" class="custom-file-input" id="validatedCustomFile" name="picture"
-              [(ngModel)]="user.picture" (change)="initialize()">
-      </div>
+        <div class="form-group">
+            <input type="text" class="form-control" name="profession" placeholder="Profession"
+                [(ngModel)]="user.profession" required="required">
+        </div>
+        <div class="custom-file">
+            <label for="exampleFormControlFile1"
+                style="font-style: bold; margin-bottom: 5px; font-weight: bold; ">Profil picture</label>
+            <br>
+
+            <input type="file" class="custom-file-input" id="validatedCustomFile" name="picture"
+                [(ngModel)]="user.picture" (change)="initialize()">
+        </div>
 
 
 
-      <br>
-      <div class="form-group">
-          <label class="form-check-label"><input [(ngModel)]="terms"  (click)="change()" type="checkbox" required="required"> I accept the <a href="#">Terms
-                  of Use</a> &amp; <a href="#">Privacy Policy</a></label>
-      </div>
+        <br>
+        <div class="form-group">
+            <label class="form-check-label"><input [(ngModel)]="terms" (click)="change()" type="checkbox"
+                    required="required"> I accept the <a href="#">Terms
+                    of Use</a> &amp; <a href="#">Privacy Policy</a></label>
+        </div>
 
-     
-          <div class="">
-             
-                  
-                          <button type="submit" class="btn btn-success btn-lg btn-block " (click)="Save()"
-                              [disabled]="(f.invalid) || (terms === false) || (pic === false)" id="register" style="margin-left: 30px;">Register Now</button>
-                      
-                     
-                          <button type="submit" class="btn btn-success btn-lg btn-block " (click)="Save()"
-                              (click)="f.reset()" style="margin-left: 50px; background-color: rgb(255, 192, 110); border-color: rgb(255, 192, 110);">Reset</button>
-                  
-             
-          </div>
-     
-  </form>
-  <div class="text-center">Already have an account? <a routerLink="/signin" style="color: rgb(2, 2, 136);">Sign in</a></div>
+
+        <div class="">
+
+
+            <button type="submit" class="btn btn-success btn-lg btn-block " (click)="Register()"
+                [disabled]="(f.invalid) || (terms === false) || (pic === false)" id="register"
+                style="margin-left: 30px;">Register Now</button>
+
+
+            <button type="reset" class="btn btn-success btn-lg btn-block " 
+                style="margin-left: 50px; background-color: rgb(255, 192, 110); border-color: rgb(255, 192, 110);">Reset</button>
+
+
+        </div>
+
+    </form>
+    <div class="text-center">Already have an account? <a routerLink="/signin" style="color: rgb(2, 2, 136);">Sign in</a>
+    </div>
 </div>

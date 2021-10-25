@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { HeadComponent } from './head/head.component';
 import { ContentComponent } from './content/content.component';
 import { ListUserComponent } from './list-user/list-user.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FournisseurComponentComponent } from './fournisseur-component/fournisseur-component.component';
 import { ListFournisseurComponentComponent } from './list-fournisseur-component/list-fournisseur-component.component';
 import { MainUserComponentComponent } from './main-user-component/main-user-component.component';
@@ -41,7 +41,8 @@ import { LoginComponent } from './login/login.component';
     BrowserModule,
     FormsModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
